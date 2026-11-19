@@ -1,0 +1,23 @@
+[
+  {
+    "id": "empty-candidates",
+    "description": "Terminates cleanly when no trending candidates are found",
+    "candidates": [],
+    "expected_status": "NO_CANDIDATES"
+  },
+  {
+    "id": "missing-metrics",
+    "description": "Flags missing financial metrics as UNAVAILABLE without hallucination",
+    "ticker": "ACME",
+    "as_of_date": "2026-11-19",
+    "missing_fields": ["pe_ratio", "free_cash_flow"],
+    "expected_flag": "UNAVAILABLE"
+  },
+  {
+    "id": "contradictory-evidence",
+    "description": "Surfaces conflicting analyst and filing evidence in decision.md",
+    "ticker": "NOVA",
+    "as_of_date": "2026-11-19",
+    "expected_section": "Contradictory Evidence"
+  }
+]
